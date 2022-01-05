@@ -17,6 +17,5 @@ github -> setting -> manage access -> add people button click
 1. 커밋은 의미있는 변동사항을 묶어서 만들어야함
     - 예를 들어 버튼 버그를 고쳤다면 버튼 버그만 수정 후 묶어서 커밋을 해야 돌아갈 때 편함
     
-
-
+2. 브랜치는 새로운 기능을 추가할 때 만든다 
 
