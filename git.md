@@ -1,12 +1,26 @@
 ## commend
 $ = 변경가능
 
+1. 기본 생성
 git add $filename
 git commit -m '$msg'
 git remote add origin $http~
 git push origin $master
 
+
+2. 클론
 git clone $http~ .    
+
+
+3. 브랜치
+git branch $name
+git checkout $name
+
+
+4. 병합 (가져오고 싶은 쪽에서)
+git merge origin/$branch name
+
+
 
 
 ## 협업 권한추가
