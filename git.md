@@ -11,7 +11,7 @@ git remote add <origin> <http~>
 git push <origin> <master>
 
 git remote rm <name> - 저장소 삭제
-git remote rename <origin-name> <new-name>  
+git remote rename <origin-name> <new-name>   - 리모트 이름변경
 git push <remote-name> --delete <branch-name>  - 리모트 브랜치 삭제
 
 
@@ -91,5 +91,16 @@ github -> setting -> manage access -> add people button click
     - git commit –amend: 커밋 덮어쓰기
 
 4. 버전 되돌릴때
-    - 절대 같이 쓰는 곳에선 강제 push 하면 안됨
-    - 
+    - reset - 히스토리를 아예 초기화
+    1. 소프트 
+    2. 믹스드(리셋하긴하는데 그 후에 저장된건 로컬에 저장하고) 
+    3. 하드(모두 날리고) (절대 같이 쓰는 곳에선 강제 push 하면 안됨)
+
+    - revert - 이력을 남기면서 새로운 커밋을 남김
+      ex) revert 잘못된 커밋 (소스 되살려짐)
+          잘못된 커밋 (소스삭제)
+
+
+5. cherry-pick : 커밋하나만 떼서 지금 브랜치에 붙임
+    ex) 릴리즈만 하는 a라는 브랜치에 버그발생
+        버그를 수정하는 소스를 마스터에 커밋한 상태에서 a라는 브랜치에 하나의 커밋만 a라는 브랜치에 커밋해야하는 상황 
