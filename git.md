@@ -1,3 +1,6 @@
+origin/master = 원격
+master = 로컬 저장소 
+
 ## commend
 <> = 변경가능
 
@@ -53,8 +56,16 @@ git merge <origin>/<branch-name>
 
 
 
+
+
+
+
 ## 협업 권한추가. 컬래버래이터
 github -> setting -> manage access -> add people button click
+
+
+
+
 
 
 ## 주의사항
@@ -63,3 +74,22 @@ github -> setting -> manage access -> add people button click
 
 2. 브랜치는 기능별로 쪼개는게 좋음
     
+
+
+
+## 팁
+1. 커밋을 한번 했을 때 조금 더 추가할 때... cli에서는 찾아봐야됨
+    - ammend (마지막 커밋수정..이건 조심해야됨. 혼자쓰는 브랜치에서 해야됨)
+
+2. 작업하던 브랜치에서 커밋을 안올리고 다른 브랜치로 이동해야될 때 작업파일 킵해두는 법
+    - stash 
+    - 다시 돌아올때 팝해주면 됨...cli에서는 찾아봐야됨
+
+3. 커밋 되돌릴떄 
+    - git reset: 커밋 취소하기
+    - git revert: 커밋 내용 되돌리기
+    - git commit –amend: 커밋 덮어쓰기
+
+4. 버전 되돌릴때
+    - 절대 같이 쓰는 곳에선 강제 push 하면 안됨
+    - 
