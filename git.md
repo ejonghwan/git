@@ -1,7 +1,7 @@
 origin/master = 원격
 master = 로컬 저장소 
 
-## commend
+# commend
 <> = 변경가능
 
 1. 기본 생성
@@ -10,9 +10,16 @@ git commit -m '<message>'
 git remote add <origin> <http~>
 git push <origin> <master>
 
+
 git remote rm <name> - 저장소 삭제
 git remote rename <origin-name> <new-name>   - 리모트 이름변경
 git push <remote-name> --delete <branch-name>  - 리모트 브랜치 삭제
+
+git pull <origin> <master>  
+    --rebase    한줄로 병합 옵션
+* git pull  or  git pull --rebase 
+이력을 전부 관리할 것인가 or 불필요한 이력은 필요없으므로 깔끔하게 이력을 관리할 것인가
+
 
 
 2. 클론
@@ -51,7 +58,7 @@ git merge <origin>/<branch-name>
     - 방법
     1. 깃헙으로 이동 
     2. Contribute -> pull request 버튼클릭 -> 정보확인 후 create pull request 버튼 클릭 -> 변경점 등 메시지 스크린샷 등을 적어서 보냄 
-    # 받는쪽에서도 files changed로 변경내용 확인 후 메시지 보내주고 merge pull request 버튼으로 머지 할 수 있음
+    * 받는쪽에서도 files changed로 변경내용 확인 후 메시지 보내주고 merge pull request 버튼으로 머지 할 수 있음
 
 
 
@@ -60,7 +67,7 @@ git merge <origin>/<branch-name>
 
 
 
-## 협업 권한추가. 컬래버래이터
+# 협업 권한추가. 컬래버래이터
 github -> setting -> manage access -> add people button click
 
 
@@ -68,7 +75,7 @@ github -> setting -> manage access -> add people button click
 
 
 
-## 주의사항
+# 주의사항
 1. 커밋은 의미있는 변동사항을 묶어서 만들어야함
     - 예를 들어 버튼 버그를 고쳤다면 버튼 버그만 수정 후 묶어서 커밋을 해야 돌아갈 때 편함
 
@@ -77,7 +84,7 @@ github -> setting -> manage access -> add people button click
 
 
 
-## 팁
+# 팁
 1. 커밋을 한번 했을 때 조금 더 추가할 때... cli에서는 찾아봐야됨
     - ammend (마지막 커밋수정..이건 조심해야됨. 혼자쓰는 브랜치에서 해야됨)
 
