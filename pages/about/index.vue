@@ -1,4 +1,0 @@
-<template>
-    about
-    <Test />
-</template>
