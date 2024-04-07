@@ -8,6 +8,8 @@
       <slot></slot>
     </q-card-section>
 
+    <button :class="isActive === true ? 'active': 'noActive'"  @click="handleClick">click</button>
+
     <q-separator />
 
     <q-card-actions v-if="$slots.footer" class="card__footer">
@@ -16,7 +18,18 @@
   </q-card>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+  const route = useRoute();
+  let isActive = ref(false);
+  const emit = defineEmits(["click:close"])
+  const handleClick = () => {
+    emit('click:close', route.params.courseSlug)
+    isActive.value = !isActive.value
+  }
+
+  
+</script>
 
 <style scoped>
 .card__header {

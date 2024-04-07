@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-xl">
-    <AppCard :hoho="'zzz hoho'">
+    <AppCard :hoho="'zzz hoho'" @click:close="handleClose">
       <template #header>
         <div class="text-h5 text-weight-medium">{{ course?.title }}</div>
         <div class="flex q-gutter-x-sm items-center q-mt-sm text-grey-8">
@@ -60,6 +60,14 @@ console.log(route.params, 'params?');
   route.params에서 가져온건 string 또는 string[] 이라서 ... 
   우리는 함수 선언문 매개변수에 string이라고 정해줬기 때문에 string만 보내야함. 그래서 명시해줘야함
 */
+
+
+// emit test
+const handleClose = (a: string) => {
+  console.log('emit test', a)
+} 
+
+
 </script>
 
 <style scoped></style>
