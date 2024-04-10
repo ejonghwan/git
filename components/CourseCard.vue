@@ -54,16 +54,16 @@ const getData = async (): Promise<T> => {
   return data;
 };
 
-interface User {
-  completed: boolean;
-  id: number;
-  title: string;
-  userId: number;
-}
+// interface User {
+//   completed: boolean;
+//   id: number;
+//   title: string;
+//   userId: number;
+// }
 
 
 onBeforeMount(() => {
-  const d = getData<User>();
+  const d = getData();
 });
 
 
