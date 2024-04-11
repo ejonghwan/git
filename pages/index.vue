@@ -1,5 +1,8 @@
 <template>
   <q-layout>
+    
+    <TestWrap />
+
     <q-page-container>
       <q-page padding>
         <div class="q-my-xl tex-center">
@@ -14,7 +17,7 @@
             </li>
           </ul>
         </div>
-        asdsad
+        
         <CourseCard :hoho="obj" />
       </q-page>
     </q-page-container>
