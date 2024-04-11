@@ -1,7 +1,7 @@
 <template>
     <div class="video-container">
         parent {{ ii }}
-        <TestDetail v-for="(d, idx) in dd" :key="d.name" :data="d" :idxzz="ii" @click:remove="handleRemove" @click="handleParentClick(idx,d )" ref="btnallRef"  />
+        <TestDetail v-for="(d, idx) in dd" :key="d.name" :data="d" :idxzz="ii" @click:remove="handleRemove" @click="handleParentClick(idx,d )" ref="btnallRef" :class="n === idx ? 'active': false" />
     </div>
   </template>
   
@@ -18,10 +18,12 @@
     // return idx === d.id ? 'active' : false
     console.log(d)
     ii.value = idx
+    n.value = idx
   }
 
 
   const btnallRef = ref(null);
+  const n = ref(0);
 const handleRemove = () => {
     // btnallRef.value.map(item => console.log(item))
     // console.log(btnallRef)
@@ -32,5 +34,5 @@ const handleRemove = () => {
 
 
   <style>
-    button.active { border: 2px solid red; }
+    .active button { border: 2px solid red; }
 </style>
