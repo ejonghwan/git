@@ -91,9 +91,9 @@ console.log('re?', re);
 // function fn(arr: Type): Type {
 //   return arr[0]
 // }
-const fn = <Type> (arr: Type[]): Type => arr[0];
-console.log('n', fn<number>(['a',1,2,3]) ) // type error
-console.log('s', fn<string>(['1','2','3'])); 
+// const fn = <Type> (arr: Type[]): Type => arr[0];
+// console.log('n', fn<number>(['a',1,2,3]) ) // type error
+// console.log('s', fn<string>(['1','2','3'])); 
 
 
 // 제네릭 테스트 3
