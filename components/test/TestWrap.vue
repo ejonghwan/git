@@ -24,10 +24,40 @@
 
   const btnallRef = ref(null);
   const n = ref(0);
-const handleRemove = () => {
-    // btnallRef.value.map(item => console.log(item))
-    // console.log(btnallRef)
-}
+  const handleRemove = () => {
+      // btnallRef.value.map(item => console.log(item))
+      // console.log(btnallRef)
+  }
+
+
+  var arr: number[] = [10, 3, 5, 11, 50, 7, 35, 23, 30, 42]
+  
+  function ba(arr: number[] | undefined) {
+    if(arr.length <= 1) return arr;
+
+    let fibo = [arr.shift()];
+    let g1 = [];
+    let g2 = [];
+   
+    // console.log('fibo?',fibo)
+  
+    for(let i in arr) {
+      if(arr[i] < fibo) {
+        g1.push(arr[i])
+      } else {
+        g2.push(arr[i])
+      }
+    }
+   
+    console.log(g1, g2)
+
+    let aa = ba(g1).concat(fibo, ba(g2))
+    // console.log('aa?', aa)
+    return aa
+  }
+
+
+  console.log('last fibo?', ba(arr))
 
   </script>
   
