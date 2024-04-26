@@ -56,8 +56,8 @@
     return aa
   }
 
-
-  console.log('last fibo?', ba(arr))   
+// AsyncDisposableStack
+//   console.log('last fibo?', ba(arr))   
 
   </script>
   
