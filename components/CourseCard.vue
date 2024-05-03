@@ -47,12 +47,17 @@ console.log('c porps?', props);
 
 
 // test2
-const getData = async (): Promise<T> => {
-  const res = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-  const data = res.data;
-  console.log(res);
-  return data;
+const getData = <T> (str: T): T => {
+  // const res = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+  // const data = res.data;
+  // console.log(res);
+  return str;
 };
+
+function aa<T>(str: T): T {
+  return str
+}
+aa<string>('asd')
 
 // interface User {
 //   completed: boolean;
@@ -63,7 +68,7 @@ const getData = async (): Promise<T> => {
 
 
 onBeforeMount(() => {
-  const d = getData();
+  const d = getData<string>();
 });
 
 
