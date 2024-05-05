@@ -46,45 +46,51 @@ console.log('c porps?', props);
 
 
 
-// test2
-const getData = async <T, >(str: string): Promise<T> => {
-  const res = await axios.get(str);
-  const data = res.data;
-  // console.log(res);
-  // return str;
-  return data
-};
-
-
-
-// interface User {
-//   completed: boolean;
-//   id: number;
-//   title: string;
-//   userId: number;
-// }
+interface Res<T> {
+  headers: object;
+  data: T;
+}
 
 interface GetD {
-  ompleted: boolean;
+  completed: boolean;
   id: number;
   title: string
   userId: number;
 }
-
+// test2
+const getData = async <T, >(url: string): Promise<T> => {
+  const res = await axios.get(url);
+  const data = res.data;
+  return { headers: res.headers, data: data }
+};
 onBeforeMount(async () => {
-  const d = await getData<GetD>('https://jsonplaceholder.typicode.com/todos/1');
+  const d = await getData<Res<GetD>>('https://jsonplaceholder.typicode.com/todos/');
   console.log('ddddddddddddddd??????????????', d)
 });
 
 
 
-interface Hoho {
+
+
+
+interface Hoho<T, G> {
   hoho: string
   zzz: string
+  gene: T
+  gene1: G
 }
-const zz: Hoho = {
+
+interface Gene {
+  gene2: string;
+}
+
+const zz: Hoho<string, Gene> = {
   hoho: 'aa',
-  zzz: 'asd'
+  zzz: 'asd',
+  gene: 'gene1',
+  gene1: {
+    gene2: 'gene2'
+  }
 }
 
 
@@ -151,19 +157,17 @@ interface innerData {
 }
 
 
-
 const getVal = ref() 
 // const getDataaa = async (url: string): Promise<GetDataaa<innerData>> => {
 const getDataaa = async <T, >(url: string): Promise<GetDataaa<T>> => {
   const res = await axios.get(url);
   const data = res.data
-  getVal.value = data;
-  return { header: res.headers, status: res.status, data: await data  }
+  return { header: res.headers, status: res.status, data: data  }
 }
 
 
-getDataaa<GetDataaa<innerData>>('https://jsonplaceholder.typicode.com/todos/1')
-  console.log('?????????????????????', getVal)
+getVal.value = await getDataaa<GetDataaa<innerData>>('https://jsonplaceholder.typicode.com/todos/1')
+console.log('?????????????????????', getVal.value.header)
 // console.log('dd?', dd)
 
 
