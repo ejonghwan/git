@@ -47,17 +47,15 @@ console.log('c porps?', props);
 
 
 // test2
-const getData = <T> (str: T): T => {
-  // const res = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-  // const data = res.data;
+const getData = async <T, >(str: string): Promise<T> => {
+  const res = await axios.get(str);
+  const data = res.data;
   // console.log(res);
-  return str;
+  // return str;
+  return data
 };
 
-function aa<T>(str: T): T {
-  return str
-}
-aa<string>('asd')
+
 
 // interface User {
 //   completed: boolean;
@@ -66,9 +64,16 @@ aa<string>('asd')
 //   userId: number;
 // }
 
+interface GetD {
+  ompleted: boolean;
+  id: number;
+  title: string
+  userId: number;
+}
 
-onBeforeMount(() => {
-  const d = getData<string>();
+onBeforeMount(async () => {
+  const d = await getData<GetD>('https://jsonplaceholder.typicode.com/todos/1');
+  console.log('ddddddddddddddd??????????????', d)
 });
 
 
@@ -84,10 +89,15 @@ const zz: Hoho = {
 
 
 // 제네릭 테스트 1
-function abc<T>(z: T): string {
+// function abc<T>(z: T): string {
+//   console.log(z);
+//   return 'zz';
+// }
+
+const abc = <T,> (z: T): string => {
   console.log(z);
   return 'zz';
-}
+}  
 const re = abc<string>('hhhh');
 console.log('re?', re);
 
@@ -127,6 +137,12 @@ console.log('re?', re);
 // 이렇게 변경
 // 정리하자면 인터페이스를 선언할 때 넣는게 아니라 실행할 때 넣는다고 보면됨.
 // 지금껏 헷갈린게 함수 만들때도 선언부분이기때문에 헷갈렸는데... 생각해보니 인터페이스 선언이었음.
+
+interface GetDataaa<T> { //밖에다 매개변수 주고 선언할때 위 인터페이스를 넘기는구나 
+  header: object
+  status: number;
+  data: T;
+}
 interface innerData {
   completed: boolean;
   id: number;
@@ -134,15 +150,11 @@ interface innerData {
   userId: number;
 }
 
-interface GetDataaa<T> { //밖에다 매개변수 주고 선언할때 위 인터페이스를 넘기는구나 
-  header: object
-  status: number;
-  data: T;
-}
+
 
 const getVal = ref() 
 // const getDataaa = async (url: string): Promise<GetDataaa<innerData>> => {
-const getDataaa = async <T>(url: string): Promise<GetDataaa<T>> => {
+const getDataaa = async <T, >(url: string): Promise<GetDataaa<T>> => {
   const res = await axios.get(url);
   const data = res.data
   getVal.value = data;
@@ -151,7 +163,7 @@ const getDataaa = async <T>(url: string): Promise<GetDataaa<T>> => {
 
 
 getDataaa<GetDataaa<innerData>>('https://jsonplaceholder.typicode.com/todos/1')
-  console.log(getVal)
+  console.log('?????????????????????', getVal)
 // console.log('dd?', dd)
 
 
