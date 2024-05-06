@@ -45,10 +45,10 @@ const props = defineProps<Props>();
 console.log('c porps?', props);
 
 
-
+// type HeadersInit = Headers | string[][] | Record<string, string>;
 interface Res<T> {
-  headers: object;
-  data: T;
+  data?: T;
+  aa: string
 }
 
 interface GetD {
@@ -61,7 +61,8 @@ interface GetD {
 const getData = async <T, >(url: string): Promise<T> => {
   const res = await axios.get(url);
   const data = res.data;
-  return { headers: res.headers, data: data }
+  // return { data: data, aa: 'asd' }
+  return data
 };
 onBeforeMount(async () => {
   const d = await getData<Res<GetD>>('https://jsonplaceholder.typicode.com/todos/');
